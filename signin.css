@@ -1,0 +1,38 @@
+/* body{
+    background-image: url("signin.jpg");
+    background-size:2020px;  
+ 
+} */
+
+html {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+
+  body {
+    width: 100%;
+
+  }
+
+  body {
+    background-image: url("signin1.jpg");
+    background-size: 1040px;
+
+
+  }
+.logo{
+    border-radius:  20px; 
+    border: 2px solid ; 
+}
+form{
+    border: 8px solid black; 
+    padding: 20px 8px; 
+    
+    border-radius: 16px; 
+    box-shadow: 0px 0px 20px 3px black;
+}
+
