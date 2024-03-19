@@ -4,6 +4,11 @@
  
 } */
 
+h1{
+
+  font-size: 2rem !important;
+  
+}
 html {
     height: 100vh;
     display: flex;
