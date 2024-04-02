@@ -1,0 +1,273 @@
+[
+    {
+        "type": "Breakfast",
+        "items": [
+            {
+                "name": "Tea",
+                "price": "10",
+                "id" : 1
+            },
+            {
+                "name": "Coffee",
+                "price": "20",
+                "id" : 2
+            },
+            {
+                "name": "Poha",
+                "price": "15",
+                "id" : 3
+            },
+            {
+                "name": "Khamman",
+                "price": "20",
+                "id" : 4
+            },
+            {
+                "name": "Sev Dhokla",
+                "price": "20",
+                "id" : 5
+            }
+        ]
+    },
+    {
+        "type": "Punjabi",
+        "items": [
+            {
+                "name": "Aloo Mutter",
+                "price": "70",
+                "id" : 6
+            },
+            {
+                "name": "Jeera Aloo",
+                "price": "70",
+                "id" : 7
+            },
+            {
+                "name": "Chana Masala",
+                "price": "70",
+                "id" : 8
+            },
+            {
+                "name": "Sev Tomato",
+                "price": "70",
+                "id" : 9
+            },
+            {
+                "name": "Mix Veg",
+                "price": "75",
+                "id" : 10
+            }
+        ]
+    },
+    {
+        "type": "South Indian",
+        "items": [
+            {
+                "name": "Upma",
+                "price": "40",
+                "id" : 11
+            },
+            {
+                "name": "Masala Uttapam",
+                "price": "50",
+                "id" : 12
+            },
+            {
+                "name": "Tomato Uttapam",
+                "price": "50",
+                "id" : 13
+            },
+            {
+                "name": "Plain Dosa",
+                "price": "40",
+                "id" : 14
+            },
+            {
+                "name": "Masala Dosa",
+                "price": "50",
+                "id" : 15
+            }
+        ]
+    },
+    {
+        "type": "Chaat",
+        "items": [
+            {
+                "name": "Tea",
+                "price": "10",
+                "id" : 1
+            },
+            {
+                "name": "Coffee",
+                "price": "20",
+                "id" : 2
+            },
+            {
+                "name": "Poha",
+                "price": "15",
+                "id" : 3
+            },
+            {
+                "name": "Khamman",
+                "price": "20",
+                "id" : 4
+            },
+            {
+                "name": "Sev Dhokla",
+                "price": "20",
+                "id" : 5
+            }
+        ]
+    },
+    {
+        "type": "Sandwiches",
+        "items": [
+            {
+                "name": "Aloo Mutter",
+                "price": "70",
+                "id" : 6
+            },
+            {
+                "name": "Jeera Aloo",
+                "price": "70",
+                "id" : 7
+            },
+            {
+                "name": "Chana Masala",
+                "price": "70",
+                "id" : 8
+            },
+            {
+                "name": "Sev Tomato",
+                "price": "70",
+                "id" : 9
+            },
+            {
+                "name": "Mix Veg",
+                "price": "75",
+                "id" : 10
+            }
+        ]
+    },
+    {
+        "type": "Chinese",
+        "items": [
+            {
+                "name": "Upma",
+                "price": "40",
+                "id" : 11
+            },
+            {
+                "name": "Masala Uttapam",
+                "price": "50",
+                "id" : 12
+            },
+            {
+                "name": "Tomato Uttapam",
+                "price": "50",
+                "id" : 13
+            },
+            {
+                "name": "Plain Dosa",
+                "price": "40",
+                "id" : 14
+            },
+            {
+                "name": "Masala Dosa",
+                "price": "50",
+                "id" : 15
+            }
+        ]
+    },
+    {
+        "type": "Fix Thali",
+        "items": [
+            {
+                "name": "Tea",
+                "price": "10",
+                "id" : 1
+            },
+            {
+                "name": "Coffee",
+                "price": "20",
+                "id" : 2
+            },
+            {
+                "name": "Poha",
+                "price": "15",
+                "id" : 3
+            },
+            {
+                "name": "Khamman",
+                "price": "20",
+                "id" : 4
+            },
+            {
+                "name": "Sev Dhokla",
+                "price": "20",
+                "id" : 5
+            }
+        ]
+    },
+    {
+        "type": "Cold Drinks",
+        "items": [
+            {
+                "name": "Aloo Mutter",
+                "price": "70",
+                "id" : 6
+            },
+            {
+                "name": "Jeera Aloo",
+                "price": "70",
+                "id" : 7
+            },
+            {
+                "name": "Chana Masala",
+                "price": "70",
+                "id" : 8
+            },
+            {
+                "name": "Sev Tomato",
+                "price": "70",
+                "id" : 9
+            },
+            {
+                "name": "Mix Veg",
+                "price": "75",
+                "id" : 10
+            }
+        ]
+    },
+    {
+        "type": "Deserts",
+        "items": [
+            {
+                "name": "Upma",
+                "price": "40",
+                "id" : 11
+            },
+            {
+                "name": "Masala Uttapam",
+                "price": "50",
+                "id" : 12
+            },
+            {
+                "name": "Tomato Uttapam",
+                "price": "50",
+                "id" : 13
+            },
+            {
+                "name": "Plain Dosa",
+                "price": "40",
+                "id" : 14
+            },
+            {
+                "name": "Masala Dosa",
+                "price": "50",
+                "id" : 15
+            }
+        ]
+    }
+]
+

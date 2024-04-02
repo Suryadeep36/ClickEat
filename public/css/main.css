@@ -1,0 +1,131 @@
+/* body{
+    background-image: url("Perfect\ ClickEat\ Background.jpg");
+    background-size:1000px;
+} */
+.head{
+    
+    z-index: 1;
+    display: block;
+    position:sticky;
+    top: 0;
+    background-color: white;
+    width: 100%;
+}
+
+
+
+
+.option{
+    font-family: "Ubuntu";
+    font-size: 1.1rem;
+}
+
+.welcome{
+    font-size: 4rem;
+    font-family:"Dancing Script";
+}
+.main
+{
+   
+    /* padding-left: 3rem !important; */
+    background-image: url("/img/Perfect\ ClickEat\ Background.jpg");
+     background-attachment: fixed;
+    background-size: contain;
+    padding-bottom: 1rem;
+    /* background-color: yellow; */
+}
+
+.slidebar{
+
+    margin-bottom: 1rem;
+  
+}
+.box{
+
+}
+
+.punjabi{
+     background-image: url("/img/punjabi2.jpg") ;
+     background-size: cover;
+    background-position: right top;
+     background-repeat: no-repeat;
+     
+}
+
+.chinese{
+    background-image: url("/img/chinese.jpg") ;
+    background-size: cover;
+   background-position: center top;
+    background-repeat: no-repeat;
+    
+}
+
+.breakfast{
+    background-image: url("/img/breakfast.jpg") ;
+    background-size: cover;
+   background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.chaat{
+    background-image: url("/img/chaat.jpg") ;
+    background-size: cover;
+   background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.sandwiches{
+    background-image: url("/img/sandwiches.jpg") ;
+    background-size: cover;
+   background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.southindian{
+    background-image: url("/img/southindian.jpg") ;
+    background-size: cover;
+   background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.fix{
+    background-image: url("/img/fix.jpg") ;
+    background-size: cover;
+   background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.colddrink{
+    background-image: url("/img/colddrink.jpg") ;
+    background-size: cover;
+   background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.desserts{
+    background-image: url("/img/desserts.jpg") ;
+    background-size: cover;
+   background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.view{
+    border: 0.1rem solid!important;
+  
+}
+
+.type{
+    font-size: larger;
+    font-family: Ubuntu;
+    height: 100%;
+   width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    z-index: 1;
+    position: relative;
+    object-position: 2px 2px;
+}
