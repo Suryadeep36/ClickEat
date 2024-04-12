@@ -8,6 +8,7 @@ const menu = require("./menu.json")
 const passport = require("passport")
 const session = require('express-session');
 const flash = require('connect-flash');
+const sendMail = require('./utils/mailSender.js')
 main().catch((err) => console.log(err));
 
 async function main() {
@@ -33,6 +34,9 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("/", (req,res) => {
+  res.send("Section Page");
+})
 app.get("/customer", (req, res) => {
   res.render("signin", {msg: req.flash('msg')})
 });
@@ -40,12 +44,26 @@ app.get("/customer/signup", (req, res) => {
   let message = req.flash('msg');
   res.render("signup",{msg: message})
 });
+app.get("/staff", (req, res) => {
+  let message = req.flash('msg');
+  res.render("staff_signin",{msg: message})
+});
+app.get("/staff/signup", (req, res) => {
+  let message = req.flash('msg');
+  res.send("sign up page for staff");
+  // res.render("signup",{msg: message})
+});
+app.get("/staff/dashboard", checkAuthentication,(req, res) => {
+  if(req.user.role != "staff"){
+    res.redirect("/customer/home");
+  }
+  else{
+    res.send("Dashboard for staff");
+  }
+});
 app.get("/customer/home",checkAuthentication,(req, res) => {
   res.sendFile(path.join(__dirname, "views/main.html"));
 });
-
-
-
 app.get("/customer/:id",checkAuthentication,(req, res) => {
   let found;
   menu.map((ele)=>{
@@ -63,6 +81,8 @@ app.get("/customer/:id",checkAuthentication,(req, res) => {
     res.redirect("/customer/home")
   }
 })
+
+
 app.post("/customer/signup", (req, res) => {
   let { username, email, phone, password, confirmPassword } = req.body;
   if (password != confirmPassword) {
@@ -74,6 +94,7 @@ app.post("/customer/signup", (req, res) => {
       username: username ,
       email: email, 
       phone: phone,
+      role: "customer"
     }), password, function (err, msg) {
       if (err) {
         //user already exists
@@ -81,6 +102,7 @@ app.post("/customer/signup", (req, res) => {
         res.redirect("/customer/signup");
       } else {
         //success
+        sendMail(username, email);
         res.redirect("/customer")
       }
     }
@@ -110,15 +132,39 @@ app.post("/customer", (req, res) => {
   })(req, res)
   });
 
+app.post("/staff",(req, res) => {
+  passport.authenticate("local", (err,user, info) => {
+    if(!user){
+      if(info.name == "IncorrectPasswordError"){
+        //wrong password
+        req.flash('msg', 'wrong password')
+        res.redirect("/staff");
+      }
+      else if(info.name == "IncorrectUsernameError"){
+        //wrong username
+        req.flash('msg', 'username not found')
+        res.redirect("/staff")
+      }
+    }
+    else{
+      req.login(user, function(err) {
+        if (err) { return next(err); }
+        if(user.role == "staff"){
+          return res.redirect("/staff/dashboard");
+        }
+        return res.redirect("/customer")
+      });
+    }
+  })(req, res)
+})
 
 function checkAuthentication(req, res, next){
     if(req.isAuthenticated()){
       return next();
     }
     else{
-      res.redirect("/customer");
+      res.redirect("/");
     }
-    
 }
 app.listen(port, () => {
   console.log("App is started at port " + port);

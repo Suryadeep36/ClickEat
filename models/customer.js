@@ -6,6 +6,7 @@ const customerSchema = {
     email: String,
     phone: String,
     password: String,
+    role: String
 }
 const Customer = new Schema(customerSchema)
 Customer.plugin(passportLocalMongoose,{
