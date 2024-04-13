@@ -1,0 +1,94 @@
+
+
+.food
+{
+ 
+  background-color: bisque;
+    border: 0.25rem solid #FF7800;
+    border-radius: 0.8rem;
+    box-shadow: 8px 10px 7px 0px #000000;
+  height: 6.2rem;
+    margin: 0.6rem 0.4rem;
+  /* -webkit-margin-collapse: discard; */
+  
+    padding: 0.5rem 0.8rem  !important;
+ 
+}
+.lists{ 
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.contain{
+ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* color: #FF7800; */
+    
+}
+
+.bot{
+  border: hidden;
+  background-color: #FF7800;
+border-radius: 1rem;
+
+}
+
+.but{
+  display:flex;
+  justify-content: center;
+  justify-self: flex-end;
+  background-color:#FF7800;
+  color: black;
+width: 20px;
+}
+
+.fullbutton
+{
+  justify-self: right;
+  display: flex;
+  justify-content:center;
+  border-radius: 1rem;
+  width: 63px !important;
+  border: 2px solid;
+  background-color: rgb(237, 169, 59);
+
+}
+
+.fulldiv{
+  display: flex;
+  justify-content: space-between;
+}
+.price{
+  justify-self: start;
+}
+
+.contain{
+  background-color: #F7F7F7;
+  background-image: url(Perfect\ ClickEat\ Background.jpg);
+  background-size: contain;
+
+}
+
+.sub{
+  background-color: #FF7800;
+padding: 30px !important;
+}
+
+.outsub{
+ 
+  background-color: bisque !important ;
+}
+html  {
+  background-color: bisque !important;
+}
+body{
+  background-color:  bisque !important;
+}
+
+h5{
+  margin: 0px !important;
+}
