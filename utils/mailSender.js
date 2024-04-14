@@ -17,7 +17,7 @@ module.exports = function sendMail(username, email){
         }
         else{
             let message = {
-                from: 'gohilsuryadeep3101@gmail.com',
+                from: process.env.GMAIL_APP_USER,
                 to: email,
                 subject: `Hello ${username} 🚀🚀`,
                 html: data

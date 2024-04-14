@@ -1,6 +1,5 @@
 let password = document.getElementById('floatingPassword')
 let confirmPassword = document.getElementById('confirmPassword')
-
 confirmPassword.addEventListener('keydown',()=>{
     setTimeout(()=>{
         if(password.value != confirmPassword.value){

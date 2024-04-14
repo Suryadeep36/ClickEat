@@ -10,7 +10,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const sendMail = require('./utils/mailSender.js')
 main().catch((err) => console.log(err));
-
+let selectedItem;
 async function main() {
   //local connection for now!!
   await mongoose.connect("mongodb://127.0.0.1:27017/clickEatDB");
@@ -33,6 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json());
 
 app.get("/", (req,res) => {
   res.send("Section Page");
@@ -61,10 +62,15 @@ app.get("/staff/dashboard", checkAuthentication,(req, res) => {
     res.send("Dashboard for staff");
   }
 });
-app.get("/customer/home",checkAuthentication,(req, res) => {
-  res.sendFile(path.join(__dirname, "views/main.html"));
+app.get("/customer/home",(req, res) => {
+  res.sendFile(path.join(__dirname, "/views/main.html"));
 });
-app.get("/customer/:id",checkAuthentication,(req, res) => {
+app.get("/customer/cart", (req,res) => {
+  res.render("cart",{
+    selectedItems: selectedItem
+  });
+})
+app.get("/customer/:id",(req, res) => {
   let found;
   menu.map((ele)=>{
     if(ele.type.toLowerCase().replace(/\s/g, "") === req.params.id){
@@ -73,13 +79,34 @@ app.get("/customer/:id",checkAuthentication,(req, res) => {
   }
   )
   if(found){
-    res.render("test",{
-      type: found
+    res.render("section",{
+      foodType: found.type,
+      foodItems: found.items
     })
   }
   else{
     res.redirect("/customer/home")
   }
+})
+
+
+app.post("/customer/cart", (req, res) => {
+  if(selectedItem){
+    req.body.map((ele) => {
+      let result = selectedItem.find(({id}) => id === ele.id)
+      console.log(result)
+      if(result){
+        result.quantity += ele.quantity
+      }
+      else{
+        selectedItem.push(ele)
+      }
+    })
+  }
+  else{
+    selectedItem = req.body;
+  }
+  res.status(200).send("Data Shared!!")
 })
 
 

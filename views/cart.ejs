@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <% if(selectedItems) { %>
+        <% selectedItems.map((ele)=>{ %>
+            <h1>Name:<%=ele.name%></h1>
+            <h1>Id:-<%=ele.id %></h1>
+            <h1>Quantity:-<%= ele.quantity %></h1>
+            <h1>Price:-<%=ele.price %></h1>
+        <%  }) %>
+    <% } %>    
+</body>
+</html>

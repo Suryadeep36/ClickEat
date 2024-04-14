@@ -68,7 +68,7 @@ width: 20px;
 
 .contain{
   background-color: #F7F7F7;
-  background-image: url(Perfect\ ClickEat\ Background.jpg);
+  background-image: url(../img/Perfect\ ClickEat\ Background.jpg);
   background-size: contain;
 
 }
@@ -91,4 +91,16 @@ body{
 
 h5{
   margin: 0px !important;
+}
+
+.heading{
+  color:  bisque !important; 
+  font-size: 4.5rem;
+}
+
+@media screen and (max-width: 725px) {
+  [class*="heading"]{
+    color:  bisque !important; 
+    font-size: 5.5vh;
+  }
 }
