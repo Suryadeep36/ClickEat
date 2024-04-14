@@ -49,11 +49,6 @@ app.get("/staff", (req, res) => {
   let message = req.flash('msg');
   res.render("staff_signin",{msg: message})
 });
-app.get("/staff/signup", (req, res) => {
-  let message = req.flash('msg');
-  res.send("sign up page for staff");
-  // res.render("signup",{msg: message})
-});
 app.get("/staff/dashboard", checkAuthentication,(req, res) => {
   if(req.user.role != "staff"){
     res.redirect("/customer/home");
@@ -62,15 +57,15 @@ app.get("/staff/dashboard", checkAuthentication,(req, res) => {
     res.send("Dashboard for staff");
   }
 });
-app.get("/customer/home",(req, res) => {
+app.get("/customer/home",checkAuthentication,(req, res) => {
   res.sendFile(path.join(__dirname, "/views/main.html"));
 });
-app.get("/customer/cart", (req,res) => {
+app.get("/customer/cart",checkAuthentication,(req,res) => {
   res.render("cart",{
     selectedItems: selectedItem
   });
 })
-app.get("/customer/:id",(req, res) => {
+app.get("/customer/:id",checkAuthentication,(req, res) => {
   let found;
   menu.map((ele)=>{
     if(ele.type.toLowerCase().replace(/\s/g, "") === req.params.id){
