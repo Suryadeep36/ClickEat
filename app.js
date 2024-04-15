@@ -89,7 +89,6 @@ app.post("/customer/cart", (req, res) => {
   if(selectedItem){
     req.body.map((ele) => {
       let result = selectedItem.find(({id}) => id === ele.id)
-      console.log(result)
       if(result){
         result.quantity += ele.quantity
       }
