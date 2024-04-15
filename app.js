@@ -9,11 +9,13 @@ const passport = require("passport")
 const session = require('express-session');
 const flash = require('connect-flash');
 const sendMail = require('./utils/mailSender.js')
-main().catch((err) => console.log(err));
+main().catch((err) => console.log(err)).then(()=>{
+  console.log("DB connected successfully")
+})
 let selectedItem;
 async function main() {
   //local connection for now!!
-  await mongoose.connect("mongodb://127.0.0.1:27017/clickEatDB");
+  await mongoose.connect(`mongodb+srv://gohilsuryadeep3101:${process.env.DB_PASS}@cluster0.3uef2pj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
 }
 let port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
