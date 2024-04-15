@@ -65,6 +65,12 @@ app.get("/customer/cart",checkAuthentication,(req,res) => {
     selectedItems: selectedItem
   });
 })
+app.get("/customer/signout",(req, res) => {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/customer');
+  });
+})
 app.get("/customer/:id",checkAuthentication,(req, res) => {
   let found;
   menu.map((ele)=>{
@@ -135,12 +141,12 @@ app.post("/customer", (req, res) => {
     if(!user){
       if(info.name == "IncorrectPasswordError"){
         //wrong password
-        req.flash('msg', 'wrong password')
+        req.flash('msg', 'Wrong Password')
         res.redirect("/customer");
       }
       else if(info.name == "IncorrectUsernameError"){
         //wrong username
-        req.flash('msg', 'username not found')
+        req.flash('msg', '*User Not Found')
         res.redirect("/customer")
       }
     }
@@ -178,6 +184,7 @@ app.post("/staff",(req, res) => {
     }
   })(req, res)
 })
+
 
 function checkAuthentication(req, res, next){
     if(req.isAuthenticated()){
