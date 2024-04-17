@@ -6,7 +6,15 @@ const customerSchema = {
     email: String,
     phone: String,
     password: String,
-    role: String
+    role: String,
+    choosenItems: [
+        {
+            name: String,
+            id: String,
+            quantity: Number,
+            price: String
+        }
+    ]
 }
 const Customer = new Schema(customerSchema)
 Customer.plugin(passportLocalMongoose,{

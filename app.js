@@ -10,7 +10,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const sendMail = require('./utils/mailSender.js')
 
-let selectedItem;
 async function main() {
   await mongoose.connect(`mongodb+srv://gohilsuryadeep3101:${process.env.DB_PASS}@cluster0.3uef2pj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
   console.log("DB connected successfully")
@@ -64,7 +63,7 @@ app.get("/customer/home",checkAuthentication,(req, res) => {
 });
 app.get("/customer/cart",checkAuthentication,(req,res) => {
   res.render("cart",{
-    selectedItems: selectedItem
+    selectedItems: req.user.choosenItems
   });
 })
 app.get("/customer/signout",(req, res) => {
@@ -93,22 +92,26 @@ app.get("/customer/:id",checkAuthentication,(req, res) => {
 })
 
 
-app.post("/customer/cart", (req, res) => {
-  if(selectedItem){
-    req.body.map((ele) => {
-      let result = selectedItem.find(({id}) => id === ele.id)
-      if(result){
-        result.quantity += ele.quantity
-      }
-      else{
-        selectedItem.push(ele)
-      }
-    })
-  }
-  else{
-    selectedItem = req.body;
-  }
-  res.status(200).send("Data Shared!!")
+app.post("/customer/cart", checkAuthentication,(req, res) => {
+  customerModel.findOne({email: req.user.email}).then((user)=> {
+    if(Array.isArray(user.choosenItems) && user.choosenItems.length){
+      req.body.map((ele) => {
+       let result =  user.choosenItems.find((item) => item.id == ele.id)
+        if(result){
+          result.quantity+= ele.quantity;
+        }
+        else{
+          user.choosenItems.push(ele);
+        }
+      })
+      user.save();
+    }
+    else{
+      user.choosenItems = req.body;
+      user.save();
+    }
+  })
+  res.status(200).send("Data Shared!!");
 })
 
 
