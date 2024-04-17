@@ -52,7 +52,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-image: url(front1.jpg);
+    background-image: url(../img/front.jpg);
     background-repeat: no-repeat;
     background-size:cover;
     background-position: bottom center;

@@ -38,7 +38,7 @@ app.use(passport.session());
 app.use(bodyParser.json());
 
 app.get("/", (req,res) => {
-  res.send("Section Page");
+  res.sendFile(path.join(__dirname, "/views/front.html"));
 })
 app.get("/customer", (req, res) => {
   res.render("signin", {msg: req.flash('msg')})
