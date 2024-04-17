@@ -8,6 +8,25 @@
    margin-bottom: 2.5rem;
 }
 
+.Staff:hover
+{
+    width: 10.2rem;
+    margin-left: 0.2rem;
+}
+.customer:hover
+{
+    margin-right: 0.2rem;
+    width: 10.2rem;
+}
+.Staff:active
+{ 
+    background-color: #f8eea0;
+}
+.customer:active
+{
+    background-color: #f8eea0;
+}
+
 button{
     margin: 0px 0.1rem;
     border-radius: 0.8rem;
