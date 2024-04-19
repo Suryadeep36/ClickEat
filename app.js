@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -50,7 +51,7 @@ app.get("/staff", (req, res) => {
   let message = req.flash('msg');
   res.render("staff_signin",{msg: message})
 });
-app.get("/staff/dashboard", checkAuthentication,(req, res) => {
+app.get("/staff/dashboard",checkAuthentication,(req, res) => {
   if(req.user.role != "staff"){
     res.redirect("/customer/home");
   }
