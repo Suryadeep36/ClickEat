@@ -4,6 +4,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const customerModel = require("./models/customer.js");
+const orderModel = require("./models/orders.js");
 const bodyParser = require("body-parser");
 const menu = require("./menu.json")
 const passport = require("passport")
@@ -12,6 +13,7 @@ const flash = require('connect-flash');
 const sendMail = require('./utils/mailSender.js')
 
 async function main() {
+  // await mongoose.connect('mongodb://127.0.0.1:27017/clickEatDB');
   await mongoose.connect(`mongodb+srv://gohilsuryadeep3101:${process.env.DB_PASS}@cluster0.3uef2pj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
   console.log("DB connected successfully")
 }
@@ -63,9 +65,17 @@ app.get("/customer/home",checkAuthentication,(req, res) => {
   res.sendFile(path.join(__dirname, "/views/main.html"));
 });
 app.get("/customer/cart",checkAuthentication,(req,res) => {
+  let sum = 0;
+  req.user.choosenItems.map((ele) => {
+    sum += Number(ele.price) * Number(ele.quantity);
+  })
   res.render("cart",{
-    selectedItems: req.user.choosenItems
+    selectedItems: req.user.choosenItems,
+    totalPrice: sum
   });
+})
+app.get("/customer/profile",(req, res) => {
+  res.render("profile");
 })
 app.get("/customer/signout",(req, res) => {
   req.logout(function(err) {

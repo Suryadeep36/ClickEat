@@ -11,8 +11,9 @@
             <h1>Name:<%=ele.name%></h1>
             <h1>Id:-<%=ele.id %></h1>
             <h1>Quantity:-<%= ele.quantity %></h1>
-            <h1>Price:-<%=ele.price %></h1>
+            <h1>Price:-<%=ele.price * ele.quantity %></h1>
         <%  }) %>
     <% } %>    
+    <h2><%= totalPrice %></h2>
 </body>
 </html>
