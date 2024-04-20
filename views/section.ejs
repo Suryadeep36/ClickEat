@@ -196,12 +196,27 @@
     </div>
    
 
+    <!-- popup -->
+
+    <div class="box1 mainpopup"  >
+       
+      <div class="popup">
+        <div class="successfully">Items Added Successfully To Your Cart...</div>
+        
+        <div class="popbutton"><button class="btn" id="continue" type="button" style="color: rgb(3, 182, 3);" >Continue</button></div>
+      </div>
+  
+  </div>
+
   </div>
   
   <script src="/js/itemsCounter.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+  <script>
+   let bn = document.getElementById('orderbtn')
+  let continuebtn = document.getElementById('continue')
+  bn.addEventListener("click",(e)=>{e.preventDefault(); document.querySelector(".box1").classList.add("show")})
+  continuebtn.addEventListener("click",(e)=>{e.preventDefault(); document.querySelector(".box1").classList.remove("show")})
+  </script>
 </body>
 
 </html>
