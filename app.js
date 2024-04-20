@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -151,6 +150,15 @@ app.post("/customer/signup", (req, res) => {
     }
   )
 });
+
+app.post("/customer/updateItem",checkAuthentication,(req, res) => {
+  customerModel.findOne({
+    email: req.user.email
+  }).then((user) =>{
+    user.choosenItems = req.body;
+    user.save();
+  })
+})
 
 app.post("/customer", (req, res) => {
   passport.authenticate("local", (err,user, info) => {
