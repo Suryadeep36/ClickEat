@@ -1,8 +1,8 @@
-
 let decrement = document.getElementsByClassName("decrement");
 let increment = document.getElementsByClassName("increment");
 let currentCount = document.getElementsByClassName("input");
 let btn = document.getElementById("orderbtn");
+let continuebtn = document.getElementById("continue");
 let selectedItems = [];
 
 Array.from(decrement).map((but, index) => {
@@ -12,10 +12,9 @@ Array.from(decrement).map((but, index) => {
     }
     selectedItems.map((ele) => {
       if (ele.id == currentCount[index].id) {
-        if(ele.quantity > 0){
-            ele.quantity--;
-        }
-        else{
+        if (ele.quantity > 0) {
+          ele.quantity--;
+        } else {
           ele.quantity = 0;
         }
       }
@@ -33,22 +32,26 @@ Array.from(increment).map((but, index) => {
         key = 1;
       }
     });
-    if(!key){
-        selectedItems.push({
-            name: currentCount[index].getAttribute('name'),
-            id: currentCount[index].id,
-            quantity: 1,
-            price: currentCount[index].getAttribute('price')
-        })
+    if (!key) {
+      selectedItems.push({
+        name: currentCount[index].getAttribute("name"),
+        id: currentCount[index].id,
+        quantity: 1,
+        price: currentCount[index].getAttribute("price"),
+      });
     }
   });
 });
 btn.addEventListener("click", async () => {
-  selectedItems.map((ele,i) => {
-    if(ele.quantity == 0){
-      selectedItems.splice(i,1);
+  document.querySelector(".box1").classList.add("show");
+  Array.from(document.getElementsByClassName("input")).map((ele) => {
+    ele.innerText = "0";
+  });
+  selectedItems.map((ele, i) => {
+    if (ele.quantity == 0) {
+      selectedItems.splice(i, 1);
     }
-  })
+  });
   await fetch("http://localhost:3000/customer/cart", {
     method: "POST",
     body: JSON.stringify(selectedItems),
@@ -57,4 +60,9 @@ btn.addEventListener("click", async () => {
       "Content-type": "application/json; charset=UTF-8",
     },
   });
+  selectedItems = [];
+});
+
+continuebtn.addEventListener("click", () => {
+  document.querySelector(".box1").classList.remove("show");
 });
