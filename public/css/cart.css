@@ -119,3 +119,23 @@ align-content: space-between;
   }
 }
 
+#updatebtn{
+border: 3px solid;
+border-radius: 7px;
+  background-color:#FF7800 ;
+  color:black;
+font-size: 17px;
+}
+
+#updatebtn:active{
+  box-shadow: inset 0px 0px 4px 0px black;
+  font-size: 16px;
+}
+
+.update{
+  margin-top: 0.8rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  
+}
