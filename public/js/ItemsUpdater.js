@@ -30,15 +30,16 @@ update.addEventListener("click",async (e) =>{
     }
     let newSelectedItems = selectedItems.filter(checkIfZero);
     e.preventDefault();
-    await fetch("http://localhost:3000/customer/updateItem", {
-        method: "POST",
-        body: JSON.stringify(newSelectedItems),
-        credentials: "same-origin",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
-      selectedItems = [];
+        await fetch("http://localhost:3000/customer/updateItem", {
+            method: "POST",
+            body: JSON.stringify(newSelectedItems),
+            credentials: "same-origin",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            }
+          }).then((response) =>{
+            window.location.reload();
+          })
 })
 Array.from(increment).map((ele, id) => {
     ele.addEventListener("click",(e) =>{

@@ -157,6 +157,9 @@ app.post("/customer/updateItem",checkAuthentication,(req, res) => {
   }).then((user) =>{
     user.choosenItems = req.body;
     user.save();
+    res.json({
+      msg: "Data saved!!!"
+    })
   })
 })
 
