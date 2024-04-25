@@ -57,7 +57,12 @@ app.get("/staff/dashboard",checkAuthentication,(req, res) => {
     res.redirect("/customer/home");
   }
   else{
-    res.send("Dashboard for staff");
+    orderModel.find({}).then((allOrders) => {
+      res.render("dashboard",{
+        allOrders: allOrders
+      })
+    })
+    
   }
 });
 app.get("/customer/home",checkAuthentication,(req, res) => {
@@ -150,6 +155,20 @@ app.post("/customer/signup", (req, res) => {
     }
   )
 });
+
+app.post("/customer/placeOrder", checkAuthentication, (req, res) => {
+  let newOrder = new orderModel({
+    name: req.user.username,
+    email: req.user.email,
+    phone: req.user.phone,
+    totalprice: req.body.totalPrice,
+    finalprice: req.body.finalPrice,
+    quantity: req.body.quantity,
+    id: 12312,
+    choosenItems: req.user.choosenItems
+  });
+  newOrder.save();
+})
 
 app.post("/customer/updateItem",checkAuthentication,(req, res) => {
   customerModel.findOne({

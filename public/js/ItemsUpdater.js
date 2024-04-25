@@ -2,6 +2,7 @@ let increment = document.querySelectorAll('#increment')
 let decrement = document.querySelectorAll('#decrement')
 let quantity = document.querySelectorAll('.input');
 let update = document.getElementById('updatebtn');
+let orderbtn = document.getElementById('confirmOrder')
 let selectedItems = [];
 function addItems(id){
     let key = 0;
@@ -21,13 +22,14 @@ function addItems(id){
         })
     }
 }
+function checkIfZero(item){
+    return item.quantity !== '0';
+}
 Array.from(quantity).map((ele, id) => {
     addItems(id);
 })
 update.addEventListener("click",async (e) =>{
-    function checkIfZero(item){
-        return item.quantity !== '0';
-    }
+   
     let newSelectedItems = selectedItems.filter(checkIfZero);
     e.preventDefault();
         await fetch("http://localhost:3000/customer/updateItem", {
@@ -57,5 +59,30 @@ Array.from(decrement).map((ele, id) => {
             quantity[id].innerHTML = '0'
         }
         addItems(id);
+    })
+})
+
+orderbtn.addEventListener('click',(e) => {
+    let newSelectedItems = selectedItems.filter(checkIfZero);
+    let totalPrice = 0;
+    let quantity = 0; 
+    newSelectedItems.map((ele) => {
+        quantity += Number(ele.quantity);
+        totalPrice += Number(ele.price) * Number(ele.quantity);
+    })
+    let finalPrice = ((totalPrice + 5 + totalPrice*0.05)*0.95).toFixed(2);
+    let finalOrder ={
+        selectedItems: newSelectedItems,
+        finalPrice: finalPrice,
+        totalPrice: totalPrice,
+        quantity: quantity
+    }
+    fetch("http://localhost:3000/customer/placeOrder", {
+        method: 'POST',
+        body: JSON.stringify(finalOrder),
+        credentials: "same-origin",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        }
     })
 })

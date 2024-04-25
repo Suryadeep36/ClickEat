@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const orderSchema = {
     name: String,
-    price: String,
+    email: String,
+    phone: String,
+    totalprice: String,
+    finalprice: String,
+    quantity: String,
     id: String,
     choosenItems: [
         {
