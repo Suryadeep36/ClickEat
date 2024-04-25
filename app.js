@@ -168,6 +168,8 @@ app.post("/customer/placeOrder", checkAuthentication, (req, res) => {
     choosenItems: req.user.choosenItems
   });
   newOrder.save();
+  req.user.choosenItems = [];
+  req.user.save();
 })
 
 app.post("/customer/updateItem",checkAuthentication,(req, res) => {
