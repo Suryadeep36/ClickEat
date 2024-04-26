@@ -9,7 +9,8 @@ const menu = require("./menu.json")
 const passport = require("passport")
 const session = require('express-session');
 const flash = require('connect-flash');
-const sendMail = require('./utils/mailSender.js')
+const sendMail = require('./utils/mailSender.js');
+const { title } = require("process");
 
 async function main() {
   // await mongoose.connect('mongodb://127.0.0.1:27017/clickEatDB');
@@ -59,6 +60,7 @@ app.get("/staff/dashboard",checkAuthentication,(req, res) => {
   else{
     orderModel.find({}).then((allOrders) => {
       res.render("dashboard",{
+        title: "dashboard",
         allOrders: allOrders
       })
     })
@@ -87,6 +89,16 @@ app.get("/customer/signout",(req, res) => {
     res.redirect('/customer');
   });
 })
+app.get("/customers/orders", checkAuthentication ,(req, res) =>{
+  orderModel.find({
+    email: req.user.email
+  }).then((user) => {
+    res.render("orders",{
+      title: "Your Order History",
+      allOrders: user
+    })
+  })
+})
 app.get("/customer/:id",checkAuthentication,(req, res) => {
   let found;
   menu.map((ele)=>{
@@ -105,6 +117,7 @@ app.get("/customer/:id",checkAuthentication,(req, res) => {
     res.redirect("/customer/home")
   }
 })
+
 
 
 app.post("/customer/cart", checkAuthentication,(req, res) => {
