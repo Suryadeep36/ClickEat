@@ -190,20 +190,61 @@
                                             fdprocessedid="w6ldl8">Redeem</button>
                                     </div>
                                 </form>
+                                <div class="odbtn">
+                                    
+                                    <button id="Order" class="cfmorder" >Order Now</button>
+                                    
+                                </div>
+
+                                 
+
                             </div>
                            
+                             
                         </main>
-
-                        <button id="confirmOrder">Order</button>
+                         
         <!-- <footer class="my-5 pt-5 text-body-secondary text-center text-small">
            
         </footer> -->
+
+        
     </div>
+
+    <div class=" mainpopup">
+
+        <div class="popup">
+            <img src="\img\qrcode.jpg " class="qr">
+          
+  
+          <div class="popbutton">
+            <button class=" conti" id="cancel" type="button">Cancel</button>
+            <button class=" conti" id="confirmOrder" type="button">Confirm</button>
+        
+        </div>
+        </div>
+  
+      </div>
+
     <script src="/js/itemsUpdater.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
+    <script>
+        let pop= document.getElementById("Order");
+        pop.addEventListener("click",()=>{
+             document.querySelector(".mainpopup").classList.add("show");
+            });
+        
+        let can=document.getElementById("cancel");
+        can.addEventListener("click",()=>{
+            document.querySelector(".mainpopup").classList.remove("show")
+        })
+       
+        let con=document.getElementById("confirmOrder");
+        con.addEventListener("click",()=>{
+            document.querySelector(".mainpopup").classList.remove("show")
+        })
+    </script>
 </body>
 
 </html>

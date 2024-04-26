@@ -108,6 +108,27 @@ align-content: space-between;
   margin-right: 15px;
 }
 
+.odbtn{
+ 
+  margin: 0.8rem 0px;
+  display: flex;
+   justify-content: space-around;
+}
+.cfmorder:active{
+  font-size: 16px;
+  box-shadow: inset 0px 0px 4px 0px #0d6efd ;
+}
+.cfmorder{
+  margin-right: 2px;
+  font-size: 17px;
+  border-radius: 6px;
+  border: 3px solid #0d6efd;
+  color: #0d6efd;
+  font-weight: 700;
+}
+    
+
+
 @media only screen and (max-width: 480px) {
   .forflex {
     flex-direction: column;
@@ -139,3 +160,61 @@ font-size: 17px;
   justify-content: center;
   
 }
+
+/* popup */
+
+.mainpopup{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  margin-left: 0px;
+  z-index: 1;
+  backdrop-filter: blur(6px);
+  visibility: hidden;
+ }
+
+ .popup{
+width: 17rem;
+border-radius: 0.6rem;
+ }
+
+ .qr{
+  width: 100%;
+  height: 17rem;
+  border-radius: 0.6rem;
+  border: 3px solid black;
+ }
+ .popbutton{
+  border-radius: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+   padding: 0px;
+  /* border-right: 3px solid black;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black; */
+ }
+
+ .conti{
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  border: 3px solid #0d6efd ;
+  color: #0d6efd;
+  font-weight: 600;
+  border-radius: 0.4rem;
+ }
+ 
+ .conti:active{
+  box-shadow: inset 0px 0px 4px 0px #0d6efd ;
+
+ }
+
+ .show{
+  visibility: visible;
+ }
+

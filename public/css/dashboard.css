@@ -105,7 +105,6 @@ button{
 }
 
 
-/* HEAD */
 
 
 
@@ -139,6 +138,13 @@ button{
 @media screen and (max-width: 494px) {
   .main{
    width: 22rem;
+     
+     
+   }
+ }
+ @media screen and (max-width: 494px) {
+  .main{
+   width: 19rem;
      
      
    }
