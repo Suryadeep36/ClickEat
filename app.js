@@ -13,8 +13,8 @@ const sendMail = require('./utils/mailSender.js');
 const { title } = require("process");
 
 async function main() {
-  // await mongoose.connect('mongodb://127.0.0.1:27017/clickEatDB');
-  await mongoose.connect(`mongodb+srv://gohilsuryadeep3101:${process.env.DB_PASS}@cluster0.3uef2pj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+  await mongoose.connect('mongodb://127.0.0.1:27017/clickEatDB');
+  // await mongoose.connect(`mongodb+srv://gohilsuryadeep3101:${process.env.DB_PASS}@cluster0.3uef2pj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
   console.log("DB connected successfully")
 }
 
@@ -170,19 +170,25 @@ app.post("/customer/signup", (req, res) => {
 });
 
 app.post("/customer/placeOrder", checkAuthentication, (req, res) => {
-  let newOrder = new orderModel({
-    name: req.user.username,
-    email: req.user.email,
-    phone: req.user.phone,
-    totalprice: req.body.totalPrice,
-    finalprice: req.body.finalPrice,
-    quantity: req.body.quantity,
-    id: 12312,
-    choosenItems: req.user.choosenItems
-  });
-  newOrder.save();
-  req.user.choosenItems = [];
-  req.user.save();
+  if(Array.isArray(req.user.choosenItems) && req.user.choosenItems.length){
+    let newOrder = new orderModel({
+      name: req.user.username,
+      email: req.user.email,
+      phone: req.user.phone,
+      totalprice: req.body.totalPrice,
+      finalprice: req.body.finalPrice,
+      quantity: req.body.quantity,
+      id: 12312,
+      choosenItems: req.user.choosenItems
+    });
+    newOrder.save();
+    req.user.choosenItems = [];
+    req.user.save();
+    res.send("Order placed");
+  }
+  else{
+    res.send("Cart is Empty");
+  }
 })
 
 app.post("/customer/updateItem",checkAuthentication,(req, res) => {

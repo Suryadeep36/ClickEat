@@ -223,7 +223,7 @@ border-radius: 0.6rem;
 .empty{
   height: 18rem;
   width: 100%;
-  background-image: url("Empty.jpg");
+  background-image: url("../img/Empty.jpg");
   background-size: cover;
   display: flex;
   justify-content: center;

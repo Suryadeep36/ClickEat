@@ -29,20 +29,13 @@
                     <div class="lists col-md-8 col-lg-6 yourcart ">
                         <h4 class="mb-3  text-primary">Your Cart</h4>
 
-         <!--  EMPTY  -->
-                        <div class="empty">
-                            <div class="smallempty">
-                                 Empty
-                            </div>  
-                            
-                           
-                        </div>
+         
 
 
 
 
                         <ul class="list-group">
-                            <% if(selectedItems) { %>
+                            <% if(Array.isArray(selectedItems) && selectedItems.length) { %>
                                 <% selectedItems.map((ele)=>{ %>
                                     <div class="food">
                                         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-star-fill-success " viewBox="0 0 16 16" style="color: green;">
@@ -70,7 +63,13 @@
         
                                     </div>
                                 <%  }) %>
-                            <% } %>    
+                            <% }else{  %>   
+                                    <div class="empty">
+                                        <div class="smallempty">
+                                             Empty
+                                        </div>  
+                                    </div>
+                            <% } %>   
                             
                             
                             <!-- <div class="food"> -->
