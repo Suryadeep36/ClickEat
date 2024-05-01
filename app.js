@@ -10,11 +10,10 @@ const passport = require("passport")
 const session = require('express-session');
 const flash = require('connect-flash');
 const sendMail = require('./utils/mailSender.js');
-const { title } = require("process");
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/clickEatDB');
-  // await mongoose.connect(`mongodb+srv://gohilsuryadeep3101:${process.env.DB_PASS}@cluster0.3uef2pj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+  // await mongoose.connect('mongodb://127.0.0.1:27017/clickEatDB');
+  await mongoose.connect(`mongodb+srv://gohilsuryadeep3101:${process.env.DB_PASS}@cluster0.3uef2pj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
   console.log("DB connected successfully")
 }
 
@@ -168,6 +167,18 @@ app.post("/customer/signup", (req, res) => {
     }
   )
 });
+
+app.post("/staff/orderDone",checkAuthentication,(req, res) => {
+  orderModel.find({}).then((item) => {
+    let id = item[req.body.index]._id;
+    orderModel.findOneAndDelete({
+      _id: id
+    }).then((u) => {
+      console.log(u);
+    })
+  })
+  
+})
 
 app.post("/customer/placeOrder", checkAuthentication, (req, res) => {
   if(Array.isArray(req.user.choosenItems) && req.user.choosenItems.length){

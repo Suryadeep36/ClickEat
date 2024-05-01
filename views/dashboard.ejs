@@ -64,6 +64,17 @@
     Array.from(com).map((comBtn, i) => {
         comBtn.addEventListener('click',() => {
             fun(i);
+
+            fetch("http://localhost:3000/staff/orderDone",{
+              method: 'POST',
+              body:JSON.stringify({
+                index:i
+              }),
+              credentials: "same-origin",
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              }
+            })
         })
     })
     function fun(i) {
