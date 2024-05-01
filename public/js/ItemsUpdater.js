@@ -32,7 +32,7 @@ update.addEventListener("click",async (e) =>{
    
     let newSelectedItems = selectedItems.filter(checkIfZero);
     e.preventDefault();
-        await fetch("http://localhost:3000/customer/updateItem", {
+        await fetch("https://clickeat.onrender.com/customer/updateItem", {
             method: "POST",
             body: JSON.stringify(newSelectedItems),
             credentials: "same-origin",
@@ -77,7 +77,7 @@ orderbtn.addEventListener('click',(e) => {
         totalPrice: totalPrice,
         quantity: quantity
     }
-    fetch("http://localhost:3000/customer/placeOrder", {
+    fetch("https://clickeat.onrender.com/customer/placeOrder", {
         method: 'POST',
         body: JSON.stringify(finalOrder),
         credentials: "same-origin",

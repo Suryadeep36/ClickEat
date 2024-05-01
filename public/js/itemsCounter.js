@@ -52,7 +52,7 @@ btn.addEventListener("click", async () => {
       selectedItems.splice(i, 1);
     }
   });
-  await fetch("http://localhost:3000/customer/cart", {
+  await fetch("https://clickeat.onrender.com/customer/cart", {
     method: "POST",
     body: JSON.stringify(selectedItems),
     credentials: "same-origin",
