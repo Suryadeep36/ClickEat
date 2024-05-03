@@ -1,5 +1,5 @@
 /* body{
-    background-image: url("signin.jpg");
+    background-image: url("signin.webp");
     background-size:2020px;  
  
 } */
@@ -19,7 +19,7 @@ html {
   }
 
   body {
-    background-image: url("/img/signin1.jpg");
+    background-image: url("/img/signin1.webp");
     background-size: 1040px;
   }
 .logo{

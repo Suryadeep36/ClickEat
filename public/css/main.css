@@ -1,5 +1,5 @@
 /* body{
-    background-image: url("Perfect\ ClickEat\ Background.jpg");
+    background-image: url("Perfect\ ClickEat\ Background.webp");
     background-size:1000px;
 } */
 .head{
@@ -28,7 +28,7 @@
 {
    
     /* padding-left: 3rem !important; */
-    background-image: url("/img/Perfect\ ClickEat\ Background.jpg");
+    background-image: url("/img/Perfect\ ClickEat\ Background.webp");
      background-attachment: fixed;
     background-size: contain;
     padding-bottom: 1rem;
@@ -45,7 +45,7 @@
 }
 
 .punjabi{
-     background-image: url("/img/punjabi2.jpg") ;
+     background-image: url("/img/punjabi2.webp") ;
      background-size: cover;
     background-position: right top;
      background-repeat: no-repeat;
@@ -53,7 +53,7 @@
 }
 
 .chinese{
-    background-image: url("/img/chinese.jpg") ;
+    background-image: url("/img/chinese.webp") ;
     background-size: cover;
    background-position: center top;
     background-repeat: no-repeat;
@@ -61,49 +61,49 @@
 }
 
 .breakfast{
-    background-image: url("/img/breakfast.jpg") ;
+    background-image: url("/img/breakfast.webp") ;
     background-size: cover;
    background-position: center center;
     background-repeat: no-repeat;
 }
 
 .chaat{
-    background-image: url("/img/chaat.jpg") ;
+    background-image: url("/img/chaat.webp") ;
     background-size: cover;
    background-position: center center;
     background-repeat: no-repeat;
 }
 
 .sandwiches{
-    background-image: url("/img/sandwiches.jpg") ;
+    background-image: url("/img/sandwiches.webp") ;
     background-size: cover;
    background-position: center center;
     background-repeat: no-repeat;
 }
 
 .southindian{
-    background-image: url("/img/southindian.jpg") ;
+    background-image: url("/img/southindian.webp") ;
     background-size: cover;
    background-position: center center;
     background-repeat: no-repeat;
 }
 
 .fix{
-    background-image: url("/img/fix.jpg") ;
+    background-image: url("/img/fix.webp") ;
     background-size: cover;
    background-position: center center;
     background-repeat: no-repeat;
 }
 
 .colddrink{
-    background-image: url("/img/colddrink.jpg") ;
+    background-image: url("/img/colddrink.webp") ;
     background-size: cover;
    background-position: center center;
     background-repeat: no-repeat;
 }
 
 .desserts{
-    background-image: url("/img/desserts.jpg") ;
+    background-image: url("/img/desserts.webp") ;
     background-size: cover;
    background-position: center top;
     background-repeat: no-repeat;
