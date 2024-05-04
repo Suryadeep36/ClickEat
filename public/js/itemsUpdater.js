@@ -84,5 +84,7 @@ orderbtn.addEventListener('click',(e) => {
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         }
+    }).then(() => {
+        window.location.reload();
     })
 })
